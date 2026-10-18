@@ -679,145 +679,152 @@ details p { padding: 0 20px 18px; color: var(--ink2); font-size: 14px; line-heig
     <div class="moon"></div>
     <div class="stage-ring"></div>
 
-    <!-- Witch on broomstick -->
+    <!-- Nik's Scythe knife (ancient, purple-glow) -->
     <figure class="spook s-witch">
       <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <!-- Broomstick -->
-        <g transform="rotate(-18 200 220)">
-          <rect x="60" y="238" width="260" height="8" rx="3" fill="#6b3b14"/>
-          <rect x="60" y="238" width="260" height="2" rx="1" fill="#9a5a28"/>
-          <!-- Broom bristles -->
-          <g stroke="#f4b942" stroke-width="2.4" stroke-linecap="round" fill="none">
-            <path d="M60 242 L18 220"/>
-            <path d="M60 242 L14 232"/>
-            <path d="M60 242 L12 246"/>
-            <path d="M60 242 L14 260"/>
-            <path d="M60 242 L22 272"/>
-            <path d="M60 242 L36 282"/>
+        <defs>
+          <linearGradient id="scytheBlade" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f0e8ff"/>
+            <stop offset=".5" stop-color="#a78bfa"/>
+            <stop offset="1" stop-color="#6d28d9"/>
+          </linearGradient>
+          <linearGradient id="scytheHandle" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2a1340"/>
+            <stop offset="1" stop-color="#5a2a80"/>
+          </linearGradient>
+          <radialGradient id="scytheGem" cx=".3" cy=".3">
+            <stop offset="0" stop-color="#fff"/>
+            <stop offset=".5" stop-color="#ff7a1a"/>
+            <stop offset="1" stop-color="#8b1a00"/>
+          </radialGradient>
+          <filter id="scytheGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="4"/>
+          </filter>
+        </defs>
+        <!-- purple aura behind blade -->
+        <ellipse cx="260" cy="110" rx="90" ry="60" fill="#8b5cf6" opacity=".25" filter="url(#scytheGlow)"/>
+
+        <g transform="rotate(-24 200 220)">
+          <!-- Handle (long shaft) -->
+          <rect x="40" y="236" width="300" height="14" rx="5" fill="url(#scytheHandle)" stroke="#1a0828" stroke-width="1.5"/>
+          <!-- Handle wrap bindings -->
+          <g fill="#f4b942" opacity=".9">
+            <rect x="60" y="236" width="4" height="14"/>
+            <rect x="68" y="236" width="4" height="14"/>
+            <rect x="76" y="236" width="4" height="14"/>
+            <rect x="300" y="236" width="4" height="14"/>
+            <rect x="308" y="236" width="4" height="14"/>
+            <rect x="316" y="236" width="4" height="14"/>
           </g>
-          <path d="M55 232 L70 232 L70 252 L55 252 Z" fill="#4a2810"/>
-          <rect x="54" y="237" width="18" height="3" fill="#ff7a1a"/>
-          <rect x="54" y="244" width="18" height="3" fill="#ff7a1a"/>
+          <!-- Pommel -->
+          <circle cx="40" cy="243" r="12" fill="#2a1340" stroke="#f4b942" stroke-width="2"/>
+          <circle cx="40" cy="243" r="5" fill="url(#scytheGem)"/>
+
+          <!-- Blade mount collar -->
+          <rect x="330" y="230" width="18" height="26" rx="3" fill="#f4b942" stroke="#8b4a0a" stroke-width="1.5"/>
+
+          <!-- Curved scythe blade -->
+          <path d="M345 240 Q380 170 350 100 Q320 80 290 95 Q310 130 320 170 Q330 210 345 240 Z"
+                fill="url(#scytheBlade)" stroke="#1a0828" stroke-width="2"/>
+          <!-- Inner blade edge highlight -->
+          <path d="M340 232 Q368 170 348 110 Q324 102 302 112 Q318 150 325 180 Q332 210 340 232 Z"
+                fill="none" stroke="#fff" stroke-width="1.2" opacity=".55"/>
+          <!-- Blade tip glow -->
+          <circle cx="348" cy="102" r="6" fill="#fff" opacity=".9"/>
+          <circle cx="348" cy="102" r="12" fill="#a78bfa" opacity=".35"/>
+
+          <!-- Rune on blade -->
+          <path d="M322 160 L326 170 L322 180 L318 170 Z" fill="#ff7a1a" opacity=".9"/>
+          <path d="M310 190 L315 198 L310 206 L305 198 Z" fill="#ff7a1a" opacity=".8"/>
         </g>
 
-        <!-- Witch body (cloak) -->
-        <path d="M190 170 Q160 200 150 250 Q148 280 160 300 L250 300 Q270 280 268 250 Q258 200 230 170 Z"
-              fill="#2a1340" stroke="#6d28d9" stroke-width="2"/>
-        <!-- Cloak shadow -->
-        <path d="M200 180 Q180 210 172 250 L250 300 Q268 280 265 250 Q255 210 235 180 Z"
-              fill="#1a0828" opacity=".7"/>
-        <!-- Belt -->
-        <path d="M172 254 Q210 262 258 254" stroke="#f4b942" stroke-width="3" fill="none"/>
-        <circle cx="215" cy="258" r="4" fill="#ff7a1a"/>
-
-        <!-- Legs (striped stockings) kicked back -->
-        <g stroke-linecap="round">
-          <path d="M240 290 Q290 310 320 300" stroke="#1a0828" stroke-width="12" fill="none"/>
-          <path d="M240 290 Q295 315 325 310" stroke="#8b5cf6" stroke-width="2.5" fill="none" opacity=".7"/>
-          <!-- Boot -->
-          <path d="M318 298 Q336 300 342 310 Q338 318 320 316 Z" fill="#0a0612" stroke="#6d28d9" stroke-width="1.5"/>
-          <circle cx="330" cy="306" r="2" fill="#ff7a1a"/>
+        <!-- Floating sparkles -->
+        <g fill="#a78bfa" opacity=".85">
+          <circle cx="60" cy="310" r="2.4"/>
+          <circle cx="90" cy="330" r="1.8"/>
+          <circle cx="40" cy="340" r="1.5"/>
+          <circle cx="120" cy="320" r="2"/>
         </g>
-
-        <!-- Arms -->
-        <path d="M190 200 Q170 215 155 230" stroke="#2a1340" stroke-width="14" fill="none" stroke-linecap="round"/>
-        <path d="M225 198 Q245 212 258 228" stroke="#2a1340" stroke-width="14" fill="none" stroke-linecap="round"/>
-
-        <!-- Hands (greenish) -->
-        <circle cx="153" cy="233" r="7" fill="#86d492"/>
-        <circle cx="261" cy="231" r="7" fill="#86d492"/>
-
-        <!-- Head (green witch face) -->
-        <ellipse cx="210" cy="150" rx="28" ry="34" fill="#86d492" stroke="#4a7a52" stroke-width="1.5"/>
-        <!-- Chin point -->
-        <path d="M198 178 Q210 192 222 178" fill="#86d492" stroke="#4a7a52" stroke-width="1.5"/>
-        <!-- Nose (long witch nose) -->
-        <path d="M210 148 Q208 158 212 168 Q218 166 216 158 Z" fill="#6ab276" stroke="#4a7a52" stroke-width="1"/>
-        <circle cx="214" cy="164" r="1.5" fill="#4a7a52"/>
-        <!-- Wart -->
-        <circle cx="214" cy="156" r="1.8" fill="#4a7a52"/>
-        <!-- Eyes -->
-        <ellipse cx="200" cy="146" rx="4" ry="3" fill="#fff"/>
-        <ellipse cx="222" cy="146" rx="4" ry="3" fill="#fff"/>
-        <circle cx="201" cy="146" r="2" fill="#0a0612"/>
-        <circle cx="223" cy="146" r="2" fill="#0a0612"/>
-        <circle cx="201.6" cy="145.4" r=".7" fill="#fff"/>
-        <circle cx="223.6" cy="145.4" r=".7" fill="#fff"/>
-        <!-- Eyebrows (angry) -->
-        <path d="M194 139 L206 141" stroke="#1a0828" stroke-width="1.6" stroke-linecap="round"/>
-        <path d="M216 141 L228 139" stroke="#1a0828" stroke-width="1.6" stroke-linecap="round"/>
-        <!-- Mouth (cackle) -->
-        <path d="M202 174 Q210 180 220 174" stroke="#4a1830" stroke-width="2" fill="#2a0a18" stroke-linecap="round"/>
-        <path d="M206 176 L208 174 M212 176 L212 174 M216 176 L218 174" stroke="#fffbe8" stroke-width="1.2"/>
-
-        <!-- Hair (black stringy) -->
-        <path d="M184 128 Q178 110 190 100 Q200 90 212 92 Q226 90 236 100 Q244 112 238 128 Q244 140 236 150 L228 148 Q230 136 224 128 M184 128 Q178 142 184 152 L192 148 Q190 138 196 128" fill="#1a0828" stroke="#2a1340" stroke-width="1"/>
-
-        <!-- Witch hat -->
-        <g transform="rotate(-8 210 110)">
-          <path d="M170 128 Q210 136 250 128 L250 118 L170 118 Z" fill="#2a1340" stroke="#6d28d9" stroke-width="1.5"/>
-          <path d="M180 118 Q195 70 210 50 Q225 70 240 118 Z" fill="#2a1340" stroke="#6d28d9" stroke-width="1.5"/>
-          <!-- Hat tip bend -->
-          <path d="M212 56 Q222 48 232 54" stroke="#1a0828" stroke-width="4" fill="none" stroke-linecap="round"/>
-          <!-- Hat band -->
-          <rect x="175" y="116" width="76" height="7" fill="#ff7a1a"/>
-          <!-- Buckle -->
-          <rect x="206" y="114" width="14" height="11" fill="none" stroke="#f4b942" stroke-width="1.8"/>
-          <!-- Stars on hat -->
-          <path d="M198 85 L200 90 L205 90 L201 93 L203 98 L198 95 L193 98 L195 93 L191 90 L196 90 Z" fill="#f4b942"/>
-          <path d="M225 100 L226.5 103.5 L230 103.5 L227 105.5 L228.5 109 L225 107 L221.5 109 L223 105.5 L220 103.5 L223.5 103.5 Z" fill="#39d353"/>
-        </g>
-
-        <!-- Flying trail / sparkles -->
-        <g fill="#f4b942" opacity=".8">
-          <circle cx="40" cy="200" r="2"/>
-          <circle cx="60" cy="214" r="1.5"/>
-          <circle cx="80" cy="196" r="1.8"/>
-          <circle cx="20" cy="212" r="1.2"/>
+        <g fill="#ff7a1a" opacity=".7">
+          <circle cx="340" cy="60" r="2"/>
+          <circle cx="365" cy="80" r="1.5"/>
+          <circle cx="320" cy="50" r="1.8"/>
         </g>
       </svg>
-      <figcaption class="spook-label"><span class="tag-witch">The Witch</span> &middot; Spooky</figcaption>
+      <figcaption class="spook-label"><span class="tag-witch">Nik's Scythe</span> &middot; Ancient</figcaption>
     </figure>
 
-    <!-- Jack-o-lantern -->
+    <!-- Chroma Candycane knife (halloween coloured) -->
     <figure class="spook s-pumpkin">
       <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-        <!-- Stem -->
-        <path d="M140 60 Q145 40 160 36 Q172 40 168 56 Q164 68 155 70 Q148 72 140 60 Z" fill="#5a7a30" stroke="#2a4a18" stroke-width="2"/>
-        <path d="M158 44 Q168 40 174 48" stroke="#86d492" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <!-- Vine leaf -->
-        <path d="M172 54 Q195 50 198 36 Q188 42 180 48 Q176 50 172 54 Z" fill="#39d353" stroke="#2a4a18" stroke-width="1.5"/>
-
-        <!-- Pumpkin body (sections) -->
-        <ellipse cx="150" cy="170" rx="110" ry="90" fill="#ff7a1a"/>
-        <ellipse cx="100" cy="170" rx="40" ry="85" fill="#e85d00" opacity=".55"/>
-        <ellipse cx="200" cy="170" rx="40" ry="85" fill="#e85d00" opacity=".55"/>
-        <ellipse cx="150" cy="170" rx="25" ry="88" fill="#ff9640" opacity=".5"/>
-        <!-- Highlights -->
-        <ellipse cx="130" cy="130" rx="24" ry="12" fill="#ffb87a" opacity=".55"/>
-
-        <!-- Face (glowing) -->
-        <g filter="url(#glow)">
-          <!-- Eyes (triangles) -->
-          <path d="M100 148 L128 148 L114 170 Z" fill="#fff5d0"/>
-          <path d="M200 148 L172 148 L186 170 Z" fill="#fff5d0"/>
-          <!-- Nose -->
-          <path d="M150 170 L140 184 L160 184 Z" fill="#fff5d0"/>
-          <!-- Jagged mouth -->
-          <path d="M92 205 L110 198 L120 212 L132 200 L144 214 L156 198 L168 212 L180 198 L192 212 L208 205
-                   L202 234 L190 226 L178 236 L166 224 L154 236 L142 224 L130 236 L118 224 L108 234 Z" fill="#fff5d0"/>
-        </g>
         <defs>
-          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="3" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          <linearGradient id="caneBlade" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#fff5d0"/>
+            <stop offset=".5" stop-color="#ff9640"/>
+            <stop offset="1" stop-color="#e85d00"/>
+          </linearGradient>
+          <linearGradient id="caneHilt" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ff7a1a"/>
+            <stop offset=".5" stop-color="#8b5cf6"/>
+            <stop offset="1" stop-color="#6d28d9"/>
+          </linearGradient>
+          <radialGradient id="canePommel" cx=".35" cy=".35">
+            <stop offset="0" stop-color="#fff"/>
+            <stop offset=".5" stop-color="#39d353"/>
+            <stop offset="1" stop-color="#1b7a2d"/>
+          </radialGradient>
+          <filter id="caneAura" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="5"/>
           </filter>
         </defs>
 
-        <!-- Candle glow -->
-        <ellipse cx="150" cy="210" rx="80" ry="18" fill="#ffd97a" opacity=".25"/>
+        <!-- Orange aura behind -->
+        <ellipse cx="150" cy="150" rx="110" ry="70" fill="#ff7a1a" opacity=".2" filter="url(#caneAura)"/>
+
+        <g transform="rotate(-32 150 150)">
+          <!-- Hilt / grip wrapped in orange+purple stripes -->
+          <rect x="60" y="140" width="80" height="26" rx="6" fill="url(#caneHilt)" stroke="#1a0828" stroke-width="1.8"/>
+          <!-- Stripe wrap -->
+          <g stroke="#1a0828" stroke-width="1.3" fill="none" opacity=".7">
+            <path d="M66 140 L74 166"/>
+            <path d="M80 140 L88 166"/>
+            <path d="M94 140 L102 166"/>
+            <path d="M108 140 L116 166"/>
+            <path d="M122 140 L130 166"/>
+          </g>
+          <!-- Pommel -->
+          <circle cx="52" cy="153" r="12" fill="url(#canePommel)" stroke="#1a0828" stroke-width="1.5"/>
+          <circle cx="48" cy="149" r="3" fill="#fff" opacity=".8"/>
+
+          <!-- Guard / cross-guard -->
+          <rect x="138" y="128" width="12" height="52" rx="3" fill="#f4b942" stroke="#8b4a0a" stroke-width="1.5"/>
+          <circle cx="144" cy="124" r="6" fill="#dc2626" stroke="#4a0a0a" stroke-width="1"/>
+          <circle cx="144" cy="184" r="6" fill="#dc2626" stroke="#4a0a0a" stroke-width="1"/>
+
+          <!-- Blade -->
+          <path d="M152 142 L254 148 L262 153 L254 158 L152 164 Z"
+                fill="url(#caneBlade)" stroke="#1a0828" stroke-width="1.8"/>
+          <!-- Blade fuller line -->
+          <path d="M160 153 L252 153" stroke="#fff" stroke-width="1" opacity=".7"/>
+          <!-- Blood drip at tip -->
+          <path d="M262 153 Q264 168 268 170 Q266 158 262 153 Z" fill="#dc2626"/>
+          <circle cx="268" cy="172" r="2.5" fill="#dc2626"/>
+
+          <!-- Rune etching -->
+          <circle cx="190" cy="153" r="3" fill="none" stroke="#1a0828" stroke-width="1" opacity=".6"/>
+          <path d="M186 153 L194 153 M190 149 L190 157" stroke="#1a0828" stroke-width="1" opacity=".6"/>
+        </g>
+
+        <!-- Floating candy / sparkles -->
+        <g opacity=".9">
+          <circle cx="50" cy="220" r="4" fill="#dc2626"/>
+          <circle cx="52" cy="220" r="4" fill="#fff" opacity=".4"/>
+          <circle cx="75" cy="240" r="3" fill="#39d353"/>
+          <circle cx="240" cy="80" r="3.5" fill="#ff7a1a"/>
+          <circle cx="260" cy="100" r="2" fill="#f4b942"/>
+        </g>
       </svg>
-      <figcaption class="spook-label"><span class="tag-pumpkin">Jack</span> &middot; Lit</figcaption>
+      <figcaption class="spook-label"><span class="tag-pumpkin">Candycane</span> &middot; Chroma</figcaption>
     </figure>
   </div>
 
